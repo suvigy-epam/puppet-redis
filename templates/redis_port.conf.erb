@@ -111,6 +111,11 @@ dir /var/lib/redis/<%= @redis_port %>
 # so for example it is possible to configure the slave to save the DB with a
 # different interval, or to listen to another port, and so on.
 #
+
+<% if @redis_slaveof %>
+slaveof  <%= @redis_slaveof %>
+<% end %>
+
 # slaveof <masterip> <masterport>
 
 # If the master is password protected (using the requirepass configuration
